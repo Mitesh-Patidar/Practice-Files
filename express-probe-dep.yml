@@ -5,7 +5,7 @@ metadata:
 spec:
   replicas: 2
   selector:
-    matchLables:
+    matchLabels:
       app: express
   template:
     metadata:
@@ -16,18 +16,18 @@ spec:
         - name: express-health
           image: miteshdevops/express-health-api:1.0
           ports:
-            - contianerPort: 3000
+            - containerPort: 3000
           livenessProbe:
             httpGet:
               path: /health
               port: 3000
-            initalDelaySeconds: 15
+            initialDelaySeconds: 15
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /health
               port: 3000
-            intialDelaySeconds: 10
+            initialDelaySeconds: 10
             periodSeconds: 5
 
 ---
